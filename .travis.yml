@@ -10,3 +10,9 @@ script:
         echo $path
         docker run --rm -i pdericson/hadolint < $path
     done
+  - |
+    set -e
+    for path in `find . -name Dockerfile`; do
+        echo $path
+        docker run --rm -i mesoscloud/centos:`basename $(dirname $path)` yum check-update
+    done
