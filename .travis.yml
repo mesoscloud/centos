@@ -17,4 +17,4 @@ script:
             echo $path
             docker run --rm -i mesoscloud/centos:`basename $(dirname $path)` yum check-update
         done
-    done
+    fi
